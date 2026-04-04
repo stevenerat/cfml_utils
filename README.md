@@ -3,7 +3,8 @@
 A collection of ColdFusion utilities written during my years as a technical
 support engineer for Adobe ColdFusion. Each utility is standalone and was
 built to solve a specific, real-world problem — many were originally
-accompanied by blog posts explaining the context and approach.
+accompanied by blog posts at https://www.talkingtree.com/blog/ explaining 
+the context and approach.
 
 ## Background
 

@@ -1,0 +1,458 @@
+
+<!-- saved from url=(0161)http://localhost:8500/CFIDE/componentutils/cfcexplorer.cfc?path=/com/stevenerat/util/ImageMetadata.cfc&method=getcfcinhtml&name=com.stevenerat.util.ImageMetadata -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Component ImageMetadata</title>
+<style>
+body  {
+	font-family: verdana, arial, helvetica, sans-serif;
+	background-color: #FFFFFF;
+	font-size: 12px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+table	{
+	font-size: 11px;
+	font-family: Verdana, arial, helvetica, sans-serif;
+	width: 90%;
+}
+
+th {
+	padding: 6px;
+	font-size: 12px;
+	background-color: #cccccc;
+}
+
+td {
+	padding: 6px;
+	background-color: #eeeeee;
+	vertical-align : top;
+}
+
+code {
+	color: #000099 ;
+}
+</style>
+
+</head>
+<body style="padding-bottom : 800px;">
+
+<font size="-2">com.stevenerat.util.ImageMetadata</font><br>
+<font size="+1"><b>Component ImageMetadata (Image Metadata Utility)
+</b></font>
+
+<br><br><br>
+<p>Custom enhancement for ColdFusion's built-in EXIF and IPTC metadata functions. Wrapper for ExifTool command-line utility. Can read AND write all XMP metadata.</p><br><table>
+
+<tbody><tr><td>hierarchy:</td><td>
+	<a href="http://localhost:8500/CFIDE/componentutils/cfcexplorer.cfc?method=getcfcinhtml&amp;name=WEB-INF.cftags.component">WEB-INF.cftags.component</a><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;com.stevenerat.util.ImageMetadata<br> 
+</td></tr>
+
+<tr><td>path:</td>
+	<td>/opt/coldfusion/cfusion/wwwroot/com/stevenerat/util/ImageMetadata.cfc</td>
+</tr>
+
+<tr><td>serializable:</td>
+	<td>Yes
+			</td>
+</tr>
+
+
+<tr><td>properties:</td>
+
+	
+	<td> <a href="http://localhost:8500/CFIDE/componentutils/cfcexplorer.cfc?path=/com/stevenerat/util/ImageMetadata.cfc&amp;method=getcfcinhtml&amp;name=com.stevenerat.util.ImageMetadata#property_variables.exifTool">variables.exifTool</a></td>
+</tr>
+
+
+<tr><td>final:</td>
+
+	 
+	 <td>false
+			</td>
+			
+</tr>
+
+<tr><td>abstract:</td>
+
+	 
+	 <td>false
+			</td>
+			
+</tr>
+
+
+<tr><td>methods:</td>
+
+	
+	<td> <a href="http://localhost:8500/CFIDE/componentutils/cfcexplorer.cfc?path=/com/stevenerat/util/ImageMetadata.cfc&amp;method=getcfcinhtml&amp;name=com.stevenerat.util.ImageMetadata#method_getImageMetadata">getImageMetadata</a>, <a href="http://localhost:8500/CFIDE/componentutils/cfcexplorer.cfc?path=/com/stevenerat/util/ImageMetadata.cfc&amp;method=getcfcinhtml&amp;name=com.stevenerat.util.ImageMetadata#method_getImageMetadataTag">getImageMetadataTag</a>, <a href="http://localhost:8500/CFIDE/componentutils/cfcexplorer.cfc?path=/com/stevenerat/util/ImageMetadata.cfc&amp;method=getcfcinhtml&amp;name=com.stevenerat.util.ImageMetadata#method_init">init</a>, <a href="http://localhost:8500/CFIDE/componentutils/cfcexplorer.cfc?path=/com/stevenerat/util/ImageMetadata.cfc&amp;method=getcfcinhtml&amp;name=com.stevenerat.util.ImageMetadata#method_mergeExifToolWithCFFuncs">mergeExifToolWithCFFuncs</a>*, <a href="http://localhost:8500/CFIDE/componentutils/cfcexplorer.cfc?path=/com/stevenerat/util/ImageMetadata.cfc&amp;method=getcfcinhtml&amp;name=com.stevenerat.util.ImageMetadata#method_setExifTool">setExifTool</a>, <a href="http://localhost:8500/CFIDE/componentutils/cfcexplorer.cfc?path=/com/stevenerat/util/ImageMetadata.cfc&amp;method=getcfcinhtml&amp;name=com.stevenerat.util.ImageMetadata#method_setImageMetadata">setImageMetadata</a></td>
+</tr>
+
+
+</tbody></table>
+<font size="-2">* - private method</font>
+
+<br><br><table>
+<tbody><tr>
+	<th>Property</th>
+	<th>Hint</th>
+	<th>Type</th>
+	<th>Req.</th>
+	<th>Implemented In</th>
+	<th>Default Value</th>
+    <th>Serializable</th>
+</tr>
+
+	<tr>
+		<td><a name="property_variables.exifTool"><b>variables.exifTool</b></a>
+			</td>
+		<td></td>
+		<td> string </td>
+		<td></td>
+		<td>ImageMetadata
+		</td>
+		<td> </td>
+            <td>Yes
+			</td>
+		</tr>
+
+</tbody></table>
+
+<br><br><table>
+
+
+
+	
+
+	<tbody><tr><th align="left" colspan="1">
+		<a name="method_getImageMetadata">getImageMetadata</a> 
+		</th></tr>
+	<tr><td>
+
+	
+
+	<code>
+	
+	
+		<i>public</i>
+	
+		<i>struct</i>
+	
+	<b>getImageMetadata</b>
+	
+	(
+ 	
+		<i>
+		required string
+		</i>
+		imageFilePath, 
+		<i>
+		boolean
+		</i>
+		exifToolWinsConflict="true" 
+	)
+	
+	</code>
+	<br><br>
+	
+
+	Returns all XMP metadata for EXIF and IPTC types. Supplies a merge of metadata from the ColdFusion built-in functions and that from ExifTool.<br><br> 
+
+	Output: suppressed<br>
+
+	
+	
+		Parameters:<br>
+		
+			&nbsp;&nbsp; <b>imageFilePath:</b>
+			string, required, imageFilePath - Absolute file path to the image file.
+			<br>
+		
+			&nbsp;&nbsp; <b>exifToolWinsConflict:</b>
+			boolean, optional, exifToolWinsConflict - ColdFusion may see a tag name in a different namespace having a different value than the ExifTool tag namespace. Default is ExifTool wins a conflict. Set to false for ColdFusion to win.
+			<br>
+		
+	<br>
+	</td></tr>
+
+
+
+	
+
+	<tr><th align="left" colspan="1">
+		<a name="method_getImageMetadataTag">getImageMetadataTag</a> 
+		</th></tr>
+	<tr><td>
+
+	
+
+	<code>
+	
+	
+		<i>public</i>
+	
+		<i>string</i>
+	
+	<b>getImageMetadataTag</b>
+	
+	(
+ 	
+		<i>
+		required string
+		</i>
+		imageFilePath, 
+		<i>
+		required string
+		</i>
+		tag, 
+		<i>
+		boolean
+		</i>
+		exifToolWinsConflict="true" 
+	)
+	
+	</code>
+	<br><br>
+	
+
+	Returns a single XMP metadata tag value for EXIF or IPTC types.<br><br> 
+
+	Output: suppressed<br>
+
+	
+	
+		Parameters:<br>
+		
+			&nbsp;&nbsp; <b>imageFilePath:</b>
+			string, required, imageFilePath - Absolute file path to the image file.
+			<br>
+		
+			&nbsp;&nbsp; <b>tag:</b>
+			string, required, tag - XMP tag name to retrieve, e.g. headline, description, subject. Case-insensitive.
+			<br>
+		
+			&nbsp;&nbsp; <b>exifToolWinsConflict:</b>
+			boolean, optional, exifToolWinsConflict - ColdFusion may see a tag name in a different namespace having a different value than the ExifTool tag namespace. Default is ExifTool wins a conflict. Set to false for ColdFusion to win.
+			<br>
+		
+	<br>
+	</td></tr>
+
+
+
+	
+
+	<tr><th align="left" colspan="1">
+		<a name="method_init">init</a> 
+		</th></tr>
+	<tr><td>
+
+	
+
+	<code>
+	
+	
+		<i>public</i>
+	
+		<i>ImageMetadata</i>
+	
+	<b>init</b>
+	
+	(
+ 	
+		<i>
+		string
+		</i>
+		exifToolPath="" 
+	)
+	
+	</code>
+	<br><br>
+	
+
+	Initialize CFC by setting path to ExifTool.<br><br> 
+
+	Output: suppressed<br>
+
+	
+	
+		Parameters:<br>
+		
+			&nbsp;&nbsp; <b>exifToolPath:</b>
+			string, optional, exifToolPath - Optional full path to the ExifTool executable. If omitted, the default path for the current platform is used.
+			<br>
+		
+	<br>
+	</td></tr>
+
+
+
+	
+
+	<tr><th align="left" colspan="1">
+		<a name="method_mergeExifToolWithCFFuncs">mergeExifToolWithCFFuncs</a>* 
+		</th></tr>
+	<tr><td>
+
+	
+
+	<code>
+	
+	
+		<i>private</i>
+	
+		<i>Struct</i>
+	
+	<b>mergeExifToolWithCFFuncs</b>
+	
+	(
+ 	
+		<i>
+		required string
+		</i>
+		imageFilePath, 
+		<i>
+		required struct
+		</i>
+		exifToolResult, 
+		<i>
+		boolean
+		</i>
+		exifToolWinsConflict="true" 
+	)
+	
+	</code>
+	<br><br>
+	
+
+	Merges ExifTool output with ColdFusion's built-in ImageGetEXIFMetaData() and ImageGetIPTCMetaData() results. The two sources do not completely overlap. When both return the same tag name from different XMP namespaces, the exifToolWinsConflict flag determines which value is kept.<br><br> 
+
+	Output: suppressed<br>
+
+	
+	
+		Parameters:<br>
+		
+			&nbsp;&nbsp; <b>imageFilePath:</b>
+			string, required, imageFilePath - Absolute file path to the image file.
+			<br>
+		
+			&nbsp;&nbsp; <b>exifToolResult:</b>
+			struct, required, exifToolResult - Struct of metadata tags already parsed from ExifTool output.
+			<br>
+		
+			&nbsp;&nbsp; <b>exifToolWinsConflict:</b>
+			boolean, optional, exifToolWinsConflict - ColdFusion may see a tag name in a different namespace having a different value than the ExifTool tag namespace. Default is ExifTool wins a conflict. Set to false for ColdFusion to win.
+			<br>
+		
+	<br>
+	</td></tr>
+
+
+
+	
+
+	<tr><th align="left" colspan="1">
+		<a name="method_setExifTool">setExifTool</a> 
+		</th></tr>
+	<tr><td>
+
+	
+
+	<code>
+	
+	
+		<i>public</i>
+	
+		<i>void</i>
+	
+	<b>setExifTool</b>
+	
+	(
+ 	
+		<i>
+		string
+		</i>
+		exifToolPath="" 
+	)
+	
+	</code>
+	<br><br>
+	
+
+	Set the path to ExifTool. If no path is provided, auto-detects the default installation location for the current platform.<br><br> 
+
+	Output: suppressed<br>
+
+	
+	
+		Parameters:<br>
+		
+			&nbsp;&nbsp; <b>exifToolPath:</b>
+			string, optional, exifToolPath - Optional full path to the ExifTool executable. If omitted, the default path for the current platform is used.
+			<br>
+		
+	<br>
+	</td></tr>
+
+
+
+	
+
+	<tr><th align="left" colspan="1">
+		<a name="method_setImageMetadata">setImageMetadata</a> 
+		</th></tr>
+	<tr><td>
+
+	
+
+	<code>
+	
+	
+		<i>public</i>
+	
+		<i>void</i>
+	
+	<b>setImageMetadata</b>
+	
+	(
+ 	
+		<i>
+		required string
+		</i>
+		imageFilePath, 
+		<i>
+		required struct
+		</i>
+		tags 
+	)
+	
+	</code>
+	<br><br>
+	
+
+	Set the values for XMP metadata tags.<br><br> 
+
+	Output: suppressed<br>
+
+	
+	
+		Parameters:<br>
+		
+			&nbsp;&nbsp; <b>imageFilePath:</b>
+			string, required, imageFilePath - Absolute file path to the image file to modify.
+			<br>
+		
+			&nbsp;&nbsp; <b>tags:</b>
+			struct, required, tags - A struct containing the tag names and tag values. Struct may contain 1 or more tag name key/value pairs.
+			<br>
+		
+	<br>
+	</td></tr>
+
+
+
+</tbody></table>
+
+
+</body></html>
