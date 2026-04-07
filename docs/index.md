@@ -17,6 +17,7 @@ for Lucee, Railo, or other CFML runtimes.
 | Utility | Description |
 |---|---|
 | [ImageMetadata CFC](ImageMetadata/) | Read and write XMP, EXIF, and IPTC image metadata via ExifTool — extending ColdFusion's native-but-limited metadata functions |
+| [CFAdmin Datasource Password Cracking Utility](DataSource_Crack/) | Recover lost ColdFusion 5 datasource passwords from the Windows registry by brute-force encoding every printable character through CF's own encoder and matching against stored values |
 
 ## Source
 
